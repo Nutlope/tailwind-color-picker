@@ -17,6 +17,6 @@ Toggle the color inspector with Option+Shift+A for mac. That's it.
 
 ## Credit
 
-- Most of the code is taken from [any-color](https://github.com/hankchiutw/any-color)
+- Uses [any-color](https://github.com/hankchiutw/any-color) for the color picker
 - Uses the [nearest-color](https://github.com/dtao/nearest-color) package to calculate the nearest tailwind color
 - Copied tailwind colors from [Zhigang Fang](https://github.com/zhigang1992/nearestTailwindColor/blob/master/colors.js)
