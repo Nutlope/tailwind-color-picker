@@ -1,0 +1,17 @@
+export const kMainWidth = 232;
+export const kSaturationCanvasHeight = 124;
+export const kSliderHeight = 12;
+export const kSliderThumbSize = 13;
+export const kCirclePickerSize = 32;
+export const kAlphaGridCss =
+  'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAALUlEQVQokWM8c+bMfwYswNjYGJswAxNWUTxgOGhg/P//P9ZQOnv2LHVsGA4aADluCnZeMIMKAAAAAElFTkSuQmCC")';
+export const kActiveColor = '#2376e5';
+
+export const kDropperColor = '#6e6e6e';
+
+export const kInputBorderColor = '#e0e0e0';
+export const kInputLabelColor = '#969696';
+
+export const kUpDownArrowSize = 20;
+export const kUpDownArrowCss =
+  'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+LUNEtwAAAL5JREFUSIntlsENwyAMRU0HMIvAQLAC65CBPIlH+T2BGlVUThTaKuJJPkSA38Fgh2ixmISzbAKw+962DUREpZTdeedM6ewA6CEi8N7Dew8Rweva5bTEqooYI4gIRIQYI1QV08UppS5tkXOeK661vklb1FoxRdzqOhK3eh/JeepWD5MduNUP886LWeL7i02ICJh5+JyY+fBzMvGzBvKpZaaU5vdqVUUIoUtDCN8ZEm0sMnOv69mx+N8/AovFwsITnGDfh3yHuUkAAAAASUVORK5CYII=")';

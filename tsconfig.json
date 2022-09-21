@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "checkJs": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "lib": ["dom", "es2015", "es5", "es6"],
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "paths": {
+      "~*": ["./src/*"],
+      "popup/*": ["./src/popup/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

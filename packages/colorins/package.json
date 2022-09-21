@@ -1,0 +1,60 @@
+{
+  "name": "colorins",
+  "version": "0.1.0",
+  "description": "Image color inspecting widget",
+  "main": "dist/main/index.js",
+  "module": "dist/module/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/hankchiutw/colorins",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "describe": "npm-scripts-info",
+    "watch": "run-p watch:*",
+    "watch:main": "parcel watch src/*.ts* --no-source-maps --target node -d dist/main",
+    "watch:module": "parcel watch src/*.ts* --no-source-maps --target browser -d dist/module",
+    "watch:declaration": "tsc -p tsconfig.json -w",
+    "build": "run-s clean && run-p build:*",
+    "build:main": "parcel build src/*.ts* --no-source-maps --target node -d dist/main",
+    "build:module": "parcel build src/*.ts* --no-source-maps --target browser -d dist/module",
+    "build:declaration": "tsc -p tsconfig.json",
+    "lint": "tsc --noEmit && eslint './src/**/*.{ts,tsx,js,jsx}'",
+    "lint:fix": "yarn lint --fix && pretty-quick --staged",
+    "test": "jest --coverage",
+    "bump": "HUSKY_SKIP_HOOKS=1 release-it --ci",
+    "doc": "run-s doc:html && open-cli build/docs/index.html",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
+    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
+    "version": "standard-version",
+    "reset": "git clean -dfx && git reset --hard && npm i",
+    "clean": "trash build test",
+    "prepare-release": "run-s reset test cov:check doc:html version doc:publish"
+  },
+  "scripts-info": {
+    "info": "Display information about the package scripts",
+    "build": "Clean and rebuild the project",
+    "fix": "Try to automatically fix any linting problems",
+    "test": "Lint and unit test the project",
+    "watch": "Watch and rebuild the project on save, then rerun relevant tests",
+    "cov": "Rebuild, run tests, then create and open the coverage report",
+    "doc": "Generate HTML API documentation and open it in a browser",
+    "doc:json": "Generate API documentation in typedoc JSON format",
+    "version": "Bump package.json version, update CHANGELOG.md, tag release",
+    "reset": "Delete all untracked files and reset the repo to the last commit",
+    "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "paper": "^0.12.11"
+  },
+  "devDependencies": {
+    "@bitjson/npm-scripts-info": "^1.0.0",
+    "@bitjson/typedoc": "^0.15.0-0",
+    "open-cli": "^5.0.0",
+    "standard-version": "^8.0.1",
+    "trash-cli": "^3.0.0"
+  }
+}
