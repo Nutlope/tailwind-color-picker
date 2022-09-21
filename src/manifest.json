@@ -1,10 +1,10 @@
 {
-  "name": "any-color",
-  "short_name": "AnyColor",
-  "version": "0.2.3",
+  "name": "tailwind-color-picker",
+  "short_name": "TailwindColorPicker",
+  "version": "1.0.0",
   "manifest_version": 2,
-  "description": "Pick any pixel color from a web page",
-  "homepage_url": "https://github.com/hankchiutw/any-color",
+  "description": "Pick any color from a web page and get the closest tailwind color back",
+  "homepage_url": "https://github.com/nutlope/tailwind-color-picker",
   "icons": {
     "16": "assets/icon16.png",
     "48": "assets/icon48.png",
@@ -15,17 +15,16 @@
     "persistent": false
   },
   "browser_action": {
-    "default_title": "Click or press Cmd/Ctrl+Shift+A to launch AnyColor",
-    "name": "Click to invoke AnyColor inspector"
+    "default_title": "Click the icon or press Alt+Shift+A to launch",
+    "name": "Click to invoke the inspector"
   },
   "permissions": ["activeTab"],
   "commands": {
     "toggle-inspector": {
       "suggested_key": {
-        "default": "Ctrl+Shift+A",
-        "mac": "Command+Shift+A"
+        "default": "Alt+Shift+A"
       },
-      "description": "Toggle AnyColor inspector"
+      "description": "Toggle the inspector"
     }
   },
   "web_accessible_resources": ["assets/*"]

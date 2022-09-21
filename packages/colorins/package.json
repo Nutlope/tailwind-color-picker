@@ -5,7 +5,7 @@
   "main": "dist/main/index.js",
   "module": "dist/module/index.js",
   "typings": "dist/index.d.ts",
-  "repository": "https://github.com/hankchiutw/colorins",
+  "repository": "https://github.com/hank/colorins",
   "license": "MIT",
   "keywords": [],
   "scripts": {

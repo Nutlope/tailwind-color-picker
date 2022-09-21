@@ -1,7 +1,7 @@
 {
-  "name": "any-color",
-  "version": "0.2.3",
-  "description": "Pick any pixel color from a web page",
+  "name": "tailwind-color-picker",
+  "version": "1.0.0",
+  "description": "Pick any color from a web page and get the closest tailwind color",
   "main": "index.js",
   "scripts": {
     "start": "parcel watch src/*.ts* --no-source-maps",
@@ -43,7 +43,7 @@
       "pre-commit": "lint-staged"
     }
   },
-  "author": "hank <hankchiu.tw@gmail.com>",
+  "author": "Hassan El Mghari",
   "license": "MIT",
   "devDependencies": {
     "@types/chroma-js": "^2.0.0",
