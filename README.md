@@ -16,11 +16,18 @@ I built this to be used when quickly prototyping something and using other websi
 
 ## Todos
 
+### v1
+
 - [x] Get initial version working for regular color picker
+- [x] Get it to show up on all sites and zoom appropriately
 - [x] Add tailwind logic to choose closest color
+- [x] Working v1!
+
+### v2
+
 - [ ] Make the color picker close after one select
-- [ ] Migrate to manifest v3 & add keyboard shortcut
-- [ ] Publish to chrome store
+- [ ] Add keyboard shortcut so you don't need to manually click it again to close
+- [ ] Migrate to manifest v3 & publish to the chrome store
 
 ## Credit
 
