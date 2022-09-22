@@ -12,7 +12,7 @@ I built this to be used when quickly prototyping something and using other websi
 
 1. Run `git clone https://github.com/Nutlope/tailwind-color-picker`.
 2. Go to `chrome://extensions`, enable developer mode at the top right, click "Load Unpacked", then select the dist folder.
-3. Pin the extension to your toolbar, click on it to activate the color picker then click again to exit.
+3. Pin the extension to your toolbar, click on it to activate the color picker then click again to exit when you're done.
 
 ## Todos
 
