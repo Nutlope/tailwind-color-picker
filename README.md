@@ -1,21 +1,26 @@
-# Tailwind Color Picker
+<h1 align="center">Tailwind Color Picker</h1>
 
-A chrome extension to pick any pixel from any website and find the closest tailwind color to it.
+<p align="center">
+  A chrome extension to pick any pixel from any website and copy the closest tailwind color to it.
+</p>
 
-## Todos
+## Motivation
 
-- [x] Get initial version working
-- [ ] Make the color picker close after one select
-- [ ] Migrate to manifest v3
-- [ ] Add a keyboard shortcut work
-- [ ] Publish to chrome store
-- [ ] Post on Twitter
+I built this to be used when quickly prototyping something and using other websites for inspiration. Having a color picker to quickly get tailwind colors from other sites helps me move quicker.
 
 ## How to use
 
 1. Run `git clone https://github.com/Nutlope/tailwind-color-picker`.
 2. Go to `chrome://extensions`, enable developer mode at the top right, click "Load Unpacked", then select the dist folder.
-3. Pin the extension to your toolbar, click on it to activate the color picker then click again to exist.
+3. Pin the extension to your toolbar, click on it to activate the color picker then click again to exit.
+
+## Todos
+
+- [x] Get initial version working for regular color picker
+- [x] Add tailwind logic to choose closest color
+- [ ] Make the color picker close after one select
+- [ ] Migrate to manifest v3 & add keyboard shortcut
+- [ ] Publish to chrome store
 
 ## Credit
 
