@@ -13,9 +13,9 @@ A chrome extension to pick any pixel from any website and find the closest tailw
 
 ## How to use
 
-1. Git clone the repo
-2. Go to chrome://extesions and click "Load UnPacked", then select the dist folder
-3. Pin it to your toolbar, click on it to activate the color picker then click again to exist
+1. Run `git clone https://github.com/Nutlope/tailwind-color-picker`.
+2. Go to `chrome://extensions`, enable developer mode at the top right, click "Load Unpacked", then select the dist folder.
+3. Pin the extension to your toolbar, click on it to activate the color picker then click again to exist.
 
 ## Credit
 
