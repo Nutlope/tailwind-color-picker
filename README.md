@@ -3,6 +3,11 @@
 <p align="center">
   A chrome extension to pick any pixel from any website and copy the closest tailwind color to it.
 </p>
+<div align="center">
+
+![tailwindcolorpicker](https://user-images.githubusercontent.com/63742054/191900590-9b674703-4795-4003-ae41-753cba581ed5.gif)
+
+</div>
 
 ## Motivation
 
