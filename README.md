@@ -13,11 +13,15 @@
 
 I built this to be used when quickly prototyping something and using other websites for inspiration. Having a color picker to quickly get tailwind colors from other sites helps me move quicker.
 
-## How to use
+## How to use it locally
 
 1. Run `git clone https://github.com/Nutlope/tailwind-color-picker`.
 2. Go to `chrome://extensions`, enable developer mode at the top right, click "Load Unpacked", then select the dist folder.
-3. Pin the extension to your toolbar, click on it to activate the color picker then click again to exit when you're done.
+3. Run 'CMD + Shift + X' to toggle the extension, or click it from the toolbar to activate it
+
+## How to install
+
+Coming soon to the chrome extension store!
 
 ## Todos
 
@@ -30,9 +34,10 @@ I built this to be used when quickly prototyping something and using other websi
 
 ### v2
 
+- [x] Migrate to manifest v3
+- [x] Add keyboard shortcut that automatically opens and closes extension
+- [ ] Publish to the chrome store [in-progress]
 - [ ] Make the color picker close after one select
-- [ ] Add keyboard shortcut so you don't need to manually click it again to close
-- [ ] Migrate to manifest v3 & publish to the chrome store
 
 ## Credit
 

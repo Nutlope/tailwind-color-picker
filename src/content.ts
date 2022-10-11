@@ -1,6 +1,6 @@
 import '@webcomponents/webcomponentsjs/webcomponents-bundle';
-import 'regenerator-runtime/runtime';
 import { Inspector, inspectorFactory } from 'colorins';
+import 'regenerator-runtime/runtime';
 import { AppManager } from './core';
 import { container } from '~/common';
 import { App, Snackbar, snackbarFactory } from '~/elements';

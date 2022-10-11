@@ -1,19 +1,19 @@
 import { injectable } from 'inversify';
+import 'reflect-metadata';
+import 'regenerator-runtime/runtime';
 import {
-  ContentInjector,
+  CapturedTab,
   container,
+  ContentInjector,
   MessageService,
   toPromise,
-  CapturedTab,
 } from '~/common';
-import 'regenerator-runtime/runtime';
-import 'reflect-metadata';
 
 @injectable()
 class BackgroundMain {
   constructor(
     private messageService: MessageService,
-    private contentInjector: ContentInjector
+    private contentInjector: ContentInjector,
   ) {
     chrome.runtime.onInstalled.addListener(() => {
       console.log('AnyColor installed.');
@@ -38,7 +38,7 @@ class BackgroundMain {
       null,
       {
         format: 'png',
-      }
+      },
     );
 
     const capturedTab = {
@@ -60,7 +60,7 @@ class BackgroundMain {
   }
 
   private handleBrowserAction() {
-    chrome.browserAction.onClicked.addListener(({ id }) => {
+    chrome.action.onClicked.addListener(({ id }) => {
       this.toggleInspector(id);
     });
   }
