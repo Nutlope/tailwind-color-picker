@@ -30,9 +30,10 @@ I built this to be used when quickly prototyping something and using other websi
 
 ### v2
 
+- [ ] Migrate to manifest v3
+- [ ] Add keyboard shortcut that automatically opens and closes extension
+- [ ] Publish to the chrome store
 - [ ] Make the color picker close after one select
-- [ ] Add keyboard shortcut so you don't need to manually click it again to close
-- [ ] Migrate to manifest v3 & publish to the chrome store
 
 ## Credit
 

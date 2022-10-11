@@ -10,8 +10,9 @@ export class ContentInjector {
       return;
     }
 
-    return toPromise<void>(chrome.tabs.executeScript)(tabId, {
-      file: 'content.js',
+    return toPromise<void>(chrome.scripting.executeScript)({
+      target: { tabId },
+      files: ['content.js'],
     });
   }
 
@@ -23,10 +24,17 @@ export class ContentInjector {
     return tabs[0].id;
   }
 
-  private async isInjected(tabId: number): Promise<boolean> {
-    const result = await toPromise<boolean>(chrome.tabs.executeScript)(tabId, {
-      code: 'document.querySelector("ac-root")',
+  private runCode() {
+    const a = document.querySelector('ac-root');
+    return a ? true : null;
+  }
+
+  private async isInjected(tabId: number) {
+    const results = await toPromise<any>(chrome.scripting.executeScript)({
+      target: { tabId },
+      func: this.runCode,
     });
-    return result[0];
+
+    return results[0].result;
   }
 }

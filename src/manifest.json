@@ -2,7 +2,7 @@
   "name": "tailwind-color-picker",
   "short_name": "TailwindColorPicker",
   "version": "1.0.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Pick any color from a web page and get the closest tailwind color back",
   "homepage_url": "https://github.com/nutlope/tailwind-color-picker",
   "icons": {
@@ -11,21 +11,27 @@
     "128": "assets/icon128.png"
   },
   "background": {
-    "scripts": ["background.js", "hot-reload.js"],
-    "persistent": false
+    "service_worker": "background.js"
   },
-  "browser_action": {
-    "default_title": "Click the icon or press Alt+Shift+A to launch",
+  "action": {
+    "default_title": "Click the icon",
     "name": "Click to invoke the inspector"
   },
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "scripting", "tabs"],
   "commands": {
     "toggle-inspector": {
       "suggested_key": {
-        "default": "Alt+Shift+A"
+        "windows": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X",
+        "chromeos": "Ctrl+Shift+X"
       },
       "description": "Toggle the inspector"
     }
   },
-  "web_accessible_resources": ["assets/*"]
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
