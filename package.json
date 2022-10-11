@@ -37,12 +37,6 @@
       "bash -c 'tsc --noEmit'"
     ]
   },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "lint-staged"
-    }
-  },
   "author": "Hassan El Mghari",
   "license": "MIT",
   "devDependencies": {
