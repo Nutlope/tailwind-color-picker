@@ -9,7 +9,7 @@
     "build:src": "parcel build src/*.ts* --no-source-maps",
     "build:colorins": "yarn workspace colorins build",
     "clean": "rm -rf dist",
-    "postbuild": "cd dist && zip -r any-color_${npm_package_version}.zip *",
+    "postbuild": "cd dist && zip -r tailwind-color-picker_${npm_package_version}.zip *",
     "watch": "run-p watch:*",
     "watch:src": "parcel watch src/*.ts* --no-source-maps",
     "watch:colorins": "yarn workspace colorins watch",
