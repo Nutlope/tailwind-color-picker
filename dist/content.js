@@ -33131,137 +33131,6 @@ parcelRequire = (function (e, r, t, n) {
         './utils/binding_utils': 'qSPU',
       },
     ],
-    nj0G: [
-      function (require, module, exports) {
-        'use strict';
-        Object.defineProperty(exports, '__esModule', { value: !0 });
-        var t = Symbol.for('INJECTION');
-        function e(e, n, r, o) {
-          Object.defineProperty(e, n, {
-            configurable: !0,
-            enumerable: !0,
-            get: function () {
-              return (
-                o &&
-                  !Reflect.hasMetadata(t, this, n) &&
-                  Reflect.defineMetadata(t, r(), this, n),
-                Reflect.hasMetadata(t, this, n)
-                  ? Reflect.getMetadata(t, this, n)
-                  : r()
-              );
-            },
-            set: function (e) {
-              Reflect.defineMetadata(t, e, this, n);
-            },
-          });
-        }
-        function n(t, n) {
-          return function (r) {
-            return function (o, u) {
-              e(
-                o,
-                u,
-                function () {
-                  return t.get(r);
-                },
-                n,
-              );
-            };
-          };
-        }
-        function r(t, n) {
-          return function (r, o) {
-            return function (u, c) {
-              e(
-                u,
-                c,
-                function () {
-                  return t.getNamed(r, o);
-                },
-                n,
-              );
-            };
-          };
-        }
-        function o(t, n) {
-          return function (r, o, u) {
-            return function (c, a) {
-              e(
-                c,
-                a,
-                function () {
-                  return t.getTagged(r, o, u);
-                },
-                n,
-              );
-            };
-          };
-        }
-        function u(t, n) {
-          return function (r) {
-            return function (o, u) {
-              e(
-                o,
-                u,
-                function () {
-                  return t.getAll(r);
-                },
-                n,
-              );
-            };
-          };
-        }
-        (exports.makePropertyInjectDecorator = n),
-          (exports.makePropertyInjectNamedDecorator = r),
-          (exports.makePropertyInjectTaggedDecorator = o),
-          (exports.makePropertyMultiInjectDecorator = u);
-      },
-      {},
-    ],
-    zF2A: [
-      function (require, module, exports) {
-        'use strict';
-        Object.defineProperty(exports, '__esModule', { value: !0 });
-        var e = require('./decorators');
-        function r(r, t) {
-          return (
-            void 0 === t && (t = !0),
-            {
-              lazyInject: e.makePropertyInjectDecorator(r, t),
-              lazyInjectNamed: e.makePropertyInjectNamedDecorator(r, t),
-              lazyInjectTagged: e.makePropertyInjectTaggedDecorator(r, t),
-              lazyMultiInject: e.makePropertyMultiInjectDecorator(r, t),
-            }
-          );
-        }
-        exports.default = r;
-      },
-      { './decorators': 'nj0G' },
-    ],
-    KomH: [
-      function (require, module, exports) {
-        'use strict';
-        function e(e) {
-          return function () {
-            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++)
-              n[o] = arguments[o];
-            return new Promise(function (t) {
-              e.apply(void 0, n.concat([t]));
-            });
-          };
-        }
-        function t(e) {
-          var t = document.createElement('textarea');
-          (t.innerHTML = e), document.body.appendChild(t), t.select();
-          var n = document.execCommand('copy');
-          return document.body.removeChild(t), n;
-        }
-        Object.defineProperty(exports, '__esModule', { value: !0 }),
-          (exports.toPromise = e),
-          (exports.copy = t);
-      },
-      {},
-    ],
     pBGv: [
       function (require, module, exports) {
         var t,
@@ -34047,6 +33916,137 @@ parcelRequire = (function (e, r, t, n) {
         })(t || (t = {}));
       },
       { process: 'pBGv' },
+    ],
+    nj0G: [
+      function (require, module, exports) {
+        'use strict';
+        Object.defineProperty(exports, '__esModule', { value: !0 });
+        var t = Symbol.for('INJECTION');
+        function e(e, n, r, o) {
+          Object.defineProperty(e, n, {
+            configurable: !0,
+            enumerable: !0,
+            get: function () {
+              return (
+                o &&
+                  !Reflect.hasMetadata(t, this, n) &&
+                  Reflect.defineMetadata(t, r(), this, n),
+                Reflect.hasMetadata(t, this, n)
+                  ? Reflect.getMetadata(t, this, n)
+                  : r()
+              );
+            },
+            set: function (e) {
+              Reflect.defineMetadata(t, e, this, n);
+            },
+          });
+        }
+        function n(t, n) {
+          return function (r) {
+            return function (o, u) {
+              e(
+                o,
+                u,
+                function () {
+                  return t.get(r);
+                },
+                n,
+              );
+            };
+          };
+        }
+        function r(t, n) {
+          return function (r, o) {
+            return function (u, c) {
+              e(
+                u,
+                c,
+                function () {
+                  return t.getNamed(r, o);
+                },
+                n,
+              );
+            };
+          };
+        }
+        function o(t, n) {
+          return function (r, o, u) {
+            return function (c, a) {
+              e(
+                c,
+                a,
+                function () {
+                  return t.getTagged(r, o, u);
+                },
+                n,
+              );
+            };
+          };
+        }
+        function u(t, n) {
+          return function (r) {
+            return function (o, u) {
+              e(
+                o,
+                u,
+                function () {
+                  return t.getAll(r);
+                },
+                n,
+              );
+            };
+          };
+        }
+        (exports.makePropertyInjectDecorator = n),
+          (exports.makePropertyInjectNamedDecorator = r),
+          (exports.makePropertyInjectTaggedDecorator = o),
+          (exports.makePropertyMultiInjectDecorator = u);
+      },
+      {},
+    ],
+    zF2A: [
+      function (require, module, exports) {
+        'use strict';
+        Object.defineProperty(exports, '__esModule', { value: !0 });
+        var e = require('./decorators');
+        function r(r, t) {
+          return (
+            void 0 === t && (t = !0),
+            {
+              lazyInject: e.makePropertyInjectDecorator(r, t),
+              lazyInjectNamed: e.makePropertyInjectNamedDecorator(r, t),
+              lazyInjectTagged: e.makePropertyInjectTaggedDecorator(r, t),
+              lazyMultiInject: e.makePropertyMultiInjectDecorator(r, t),
+            }
+          );
+        }
+        exports.default = r;
+      },
+      { './decorators': 'nj0G' },
+    ],
+    KomH: [
+      function (require, module, exports) {
+        'use strict';
+        function e(e) {
+          return function () {
+            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++)
+              n[o] = arguments[o];
+            return new Promise(function (t) {
+              e.apply(void 0, n.concat([t]));
+            });
+          };
+        }
+        function t(e) {
+          var t = document.createElement('textarea');
+          (t.innerHTML = e), document.body.appendChild(t), t.select();
+          var n = document.execCommand('copy');
+          return document.body.removeChild(t), n;
+        }
+        Object.defineProperty(exports, '__esModule', { value: !0 }),
+          (exports.toPromise = e),
+          (exports.copy = t);
+      },
+      {},
     ],
     CDRn: [
       function (require, module, exports) {
@@ -37741,23 +37741,23 @@ parcelRequire = (function (e, r, t, n) {
           require('@webcomponents/webcomponentsjs/webcomponents-bundle');
         var e = require('colorins');
         require('regenerator-runtime/runtime');
-        var n = require('~/common'),
-          t = require('~/elements'),
-          r = require('./core'),
+        var n = require('./core'),
+          t = require('~/common'),
+          r = require('~/elements'),
           o = document.createElement('ac-root');
         document.body.insertAdjacentElement('afterbegin', o);
         var a = document.createElement('canvas'),
           c = o.injectCanvas(a).then(function () {
             return (
-              n.container.bind(t.App).toConstantValue(o),
-              n.container.bind(r.AppManager).toSelf(),
-              n.container
+              t.container.bind(r.App).toConstantValue(o),
+              t.container.bind(n.AppManager).toSelf(),
+              t.container
                 .bind(e.Inspector)
                 .toConstantValue(e.inspectorFactory(a)),
-              n.container
-                .bind(t.Snackbar)
-                .toConstantValue(t.snackbarFactory(o)),
-              n.container.resolve(r.AppManager)
+              t.container
+                .bind(r.Snackbar)
+                .toConstantValue(r.snackbarFactory(o)),
+              t.container.resolve(n.AppManager)
             );
           });
         exports.afterInjected = c;
@@ -37766,9 +37766,9 @@ parcelRequire = (function (e, r, t, n) {
         '@webcomponents/webcomponentsjs/webcomponents-bundle': 'bvOe',
         colorins: 'Qw1b',
         'regenerator-runtime/runtime': 'QVnC',
+        './core': 'QpEN',
         '~/common': 'rTqy',
         '~/elements': 'lFsN',
-        './core': 'QpEN',
       },
     ],
   },
