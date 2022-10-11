@@ -6902,401 +6902,6 @@ parcelRequire = (function (e, r, t, n) {
       },
       {},
     ],
-    QVnC: [
-      function (require, module, exports) {
-        var t = (function (t) {
-          'use strict';
-          var r,
-            e = Object.prototype,
-            n = e.hasOwnProperty,
-            o = 'function' == typeof Symbol ? Symbol : {},
-            i = o.iterator || '@@iterator',
-            a = o.asyncIterator || '@@asyncIterator',
-            c = o.toStringTag || '@@toStringTag';
-          function u(t, r, e, n) {
-            var o = r && r.prototype instanceof v ? r : v,
-              i = Object.create(o.prototype),
-              a = new k(n || []);
-            return (
-              (i._invoke = (function (t, r, e) {
-                var n = f;
-                return function (o, i) {
-                  if (n === l) throw new Error('Generator is already running');
-                  if (n === p) {
-                    if ('throw' === o) throw i;
-                    return N();
-                  }
-                  for (e.method = o, e.arg = i; ; ) {
-                    var a = e.delegate;
-                    if (a) {
-                      var c = _(a, e);
-                      if (c) {
-                        if (c === y) continue;
-                        return c;
-                      }
-                    }
-                    if ('next' === e.method) e.sent = e._sent = e.arg;
-                    else if ('throw' === e.method) {
-                      if (n === f) throw ((n = p), e.arg);
-                      e.dispatchException(e.arg);
-                    } else 'return' === e.method && e.abrupt('return', e.arg);
-                    n = l;
-                    var u = h(t, r, e);
-                    if ('normal' === u.type) {
-                      if (((n = e.done ? p : s), u.arg === y)) continue;
-                      return { value: u.arg, done: e.done };
-                    }
-                    'throw' === u.type &&
-                      ((n = p), (e.method = 'throw'), (e.arg = u.arg));
-                  }
-                };
-              })(t, e, a)),
-              i
-            );
-          }
-          function h(t, r, e) {
-            try {
-              return { type: 'normal', arg: t.call(r, e) };
-            } catch (n) {
-              return { type: 'throw', arg: n };
-            }
-          }
-          t.wrap = u;
-          var f = 'suspendedStart',
-            s = 'suspendedYield',
-            l = 'executing',
-            p = 'completed',
-            y = {};
-          function v() {}
-          function d() {}
-          function g() {}
-          var m = {};
-          m[i] = function () {
-            return this;
-          };
-          var w = Object.getPrototypeOf,
-            L = w && w(w(G([])));
-          L && L !== e && n.call(L, i) && (m = L);
-          var x = (g.prototype = v.prototype = Object.create(m));
-          function E(t) {
-            ['next', 'throw', 'return'].forEach(function (r) {
-              t[r] = function (t) {
-                return this._invoke(r, t);
-              };
-            });
-          }
-          function b(t, r) {
-            var e;
-            this._invoke = function (o, i) {
-              function a() {
-                return new r(function (e, a) {
-                  !(function e(o, i, a, c) {
-                    var u = h(t[o], t, i);
-                    if ('throw' !== u.type) {
-                      var f = u.arg,
-                        s = f.value;
-                      return s && 'object' == typeof s && n.call(s, '__await')
-                        ? r.resolve(s.__await).then(
-                            function (t) {
-                              e('next', t, a, c);
-                            },
-                            function (t) {
-                              e('throw', t, a, c);
-                            },
-                          )
-                        : r.resolve(s).then(
-                            function (t) {
-                              (f.value = t), a(f);
-                            },
-                            function (t) {
-                              return e('throw', t, a, c);
-                            },
-                          );
-                    }
-                    c(u.arg);
-                  })(o, i, e, a);
-                });
-              }
-              return (e = e ? e.then(a, a) : a());
-            };
-          }
-          function _(t, e) {
-            var n = t.iterator[e.method];
-            if (n === r) {
-              if (((e.delegate = null), 'throw' === e.method)) {
-                if (
-                  t.iterator.return &&
-                  ((e.method = 'return'),
-                  (e.arg = r),
-                  _(t, e),
-                  'throw' === e.method)
-                )
-                  return y;
-                (e.method = 'throw'),
-                  (e.arg = new TypeError(
-                    "The iterator does not provide a 'throw' method",
-                  ));
-              }
-              return y;
-            }
-            var o = h(n, t.iterator, e.arg);
-            if ('throw' === o.type)
-              return (
-                (e.method = 'throw'), (e.arg = o.arg), (e.delegate = null), y
-              );
-            var i = o.arg;
-            return i
-              ? i.done
-                ? ((e[t.resultName] = i.value),
-                  (e.next = t.nextLoc),
-                  'return' !== e.method && ((e.method = 'next'), (e.arg = r)),
-                  (e.delegate = null),
-                  y)
-                : i
-              : ((e.method = 'throw'),
-                (e.arg = new TypeError('iterator result is not an object')),
-                (e.delegate = null),
-                y);
-          }
-          function j(t) {
-            var r = { tryLoc: t[0] };
-            1 in t && (r.catchLoc = t[1]),
-              2 in t && ((r.finallyLoc = t[2]), (r.afterLoc = t[3])),
-              this.tryEntries.push(r);
-          }
-          function O(t) {
-            var r = t.completion || {};
-            (r.type = 'normal'), delete r.arg, (t.completion = r);
-          }
-          function k(t) {
-            (this.tryEntries = [{ tryLoc: 'root' }]),
-              t.forEach(j, this),
-              this.reset(!0);
-          }
-          function G(t) {
-            if (t) {
-              var e = t[i];
-              if (e) return e.call(t);
-              if ('function' == typeof t.next) return t;
-              if (!isNaN(t.length)) {
-                var o = -1,
-                  a = function e() {
-                    for (; ++o < t.length; )
-                      if (n.call(t, o))
-                        return (e.value = t[o]), (e.done = !1), e;
-                    return (e.value = r), (e.done = !0), e;
-                  };
-                return (a.next = a);
-              }
-            }
-            return { next: N };
-          }
-          function N() {
-            return { value: r, done: !0 };
-          }
-          return (
-            (d.prototype = x.constructor = g),
-            (g.constructor = d),
-            (g[c] = d.displayName = 'GeneratorFunction'),
-            (t.isGeneratorFunction = function (t) {
-              var r = 'function' == typeof t && t.constructor;
-              return (
-                !!r &&
-                (r === d || 'GeneratorFunction' === (r.displayName || r.name))
-              );
-            }),
-            (t.mark = function (t) {
-              return (
-                Object.setPrototypeOf
-                  ? Object.setPrototypeOf(t, g)
-                  : ((t.__proto__ = g), c in t || (t[c] = 'GeneratorFunction')),
-                (t.prototype = Object.create(x)),
-                t
-              );
-            }),
-            (t.awrap = function (t) {
-              return { __await: t };
-            }),
-            E(b.prototype),
-            (b.prototype[a] = function () {
-              return this;
-            }),
-            (t.AsyncIterator = b),
-            (t.async = function (r, e, n, o, i) {
-              void 0 === i && (i = Promise);
-              var a = new b(u(r, e, n, o), i);
-              return t.isGeneratorFunction(e)
-                ? a
-                : a.next().then(function (t) {
-                    return t.done ? t.value : a.next();
-                  });
-            }),
-            E(x),
-            (x[c] = 'Generator'),
-            (x[i] = function () {
-              return this;
-            }),
-            (x.toString = function () {
-              return '[object Generator]';
-            }),
-            (t.keys = function (t) {
-              var r = [];
-              for (var e in t) r.push(e);
-              return (
-                r.reverse(),
-                function e() {
-                  for (; r.length; ) {
-                    var n = r.pop();
-                    if (n in t) return (e.value = n), (e.done = !1), e;
-                  }
-                  return (e.done = !0), e;
-                }
-              );
-            }),
-            (t.values = G),
-            (k.prototype = {
-              constructor: k,
-              reset: function (t) {
-                if (
-                  ((this.prev = 0),
-                  (this.next = 0),
-                  (this.sent = this._sent = r),
-                  (this.done = !1),
-                  (this.delegate = null),
-                  (this.method = 'next'),
-                  (this.arg = r),
-                  this.tryEntries.forEach(O),
-                  !t)
-                )
-                  for (var e in this)
-                    't' === e.charAt(0) &&
-                      n.call(this, e) &&
-                      !isNaN(+e.slice(1)) &&
-                      (this[e] = r);
-              },
-              stop: function () {
-                this.done = !0;
-                var t = this.tryEntries[0].completion;
-                if ('throw' === t.type) throw t.arg;
-                return this.rval;
-              },
-              dispatchException: function (t) {
-                if (this.done) throw t;
-                var e = this;
-                function o(n, o) {
-                  return (
-                    (c.type = 'throw'),
-                    (c.arg = t),
-                    (e.next = n),
-                    o && ((e.method = 'next'), (e.arg = r)),
-                    !!o
-                  );
-                }
-                for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-                  var a = this.tryEntries[i],
-                    c = a.completion;
-                  if ('root' === a.tryLoc) return o('end');
-                  if (a.tryLoc <= this.prev) {
-                    var u = n.call(a, 'catchLoc'),
-                      h = n.call(a, 'finallyLoc');
-                    if (u && h) {
-                      if (this.prev < a.catchLoc) return o(a.catchLoc, !0);
-                      if (this.prev < a.finallyLoc) return o(a.finallyLoc);
-                    } else if (u) {
-                      if (this.prev < a.catchLoc) return o(a.catchLoc, !0);
-                    } else {
-                      if (!h)
-                        throw new Error(
-                          'try statement without catch or finally',
-                        );
-                      if (this.prev < a.finallyLoc) return o(a.finallyLoc);
-                    }
-                  }
-                }
-              },
-              abrupt: function (t, r) {
-                for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-                  var o = this.tryEntries[e];
-                  if (
-                    o.tryLoc <= this.prev &&
-                    n.call(o, 'finallyLoc') &&
-                    this.prev < o.finallyLoc
-                  ) {
-                    var i = o;
-                    break;
-                  }
-                }
-                i &&
-                  ('break' === t || 'continue' === t) &&
-                  i.tryLoc <= r &&
-                  r <= i.finallyLoc &&
-                  (i = null);
-                var a = i ? i.completion : {};
-                return (
-                  (a.type = t),
-                  (a.arg = r),
-                  i
-                    ? ((this.method = 'next'), (this.next = i.finallyLoc), y)
-                    : this.complete(a)
-                );
-              },
-              complete: function (t, r) {
-                if ('throw' === t.type) throw t.arg;
-                return (
-                  'break' === t.type || 'continue' === t.type
-                    ? (this.next = t.arg)
-                    : 'return' === t.type
-                    ? ((this.rval = this.arg = t.arg),
-                      (this.method = 'return'),
-                      (this.next = 'end'))
-                    : 'normal' === t.type && r && (this.next = r),
-                  y
-                );
-              },
-              finish: function (t) {
-                for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-                  var e = this.tryEntries[r];
-                  if (e.finallyLoc === t)
-                    return this.complete(e.completion, e.afterLoc), O(e), y;
-                }
-              },
-              catch: function (t) {
-                for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-                  var e = this.tryEntries[r];
-                  if (e.tryLoc === t) {
-                    var n = e.completion;
-                    if ('throw' === n.type) {
-                      var o = n.arg;
-                      O(e);
-                    }
-                    return o;
-                  }
-                }
-                throw new Error('illegal catch attempt');
-              },
-              delegateYield: function (t, e, n) {
-                return (
-                  (this.delegate = {
-                    iterator: G(t),
-                    resultName: e,
-                    nextLoc: n,
-                  }),
-                  'next' === this.method && (this.arg = r),
-                  y
-                );
-              },
-            }),
-            t
-          );
-        })('object' == typeof module ? module.exports : {});
-        try {
-          regeneratorRuntime = t;
-        } catch (r) {
-          Function('r', 'regeneratorRuntime = r')(t);
-        }
-      },
-      {},
-    ],
     Qw1b: [
       function (require, module, exports) {
         var define;
@@ -30135,34 +29740,34 @@ parcelRequire = (function (e, r, t, n) {
                   (i.createCursor = function () {
                     return new n.default.Group([
                       new n.default.Path.Circle({
-                        center: new n.default.Point(o, o),
-                        radius: a,
-                        strokeWidth: 1.2 * l,
-                        strokeColor: c,
+                        center: new n.default.Point(a, a),
+                        radius: s,
+                        strokeWidth: 1.2 * c,
+                        strokeColor: u,
                       }),
                       new n.default.Path.Line({
-                        from: [o, o - a],
-                        to: [o, o - a - h],
-                        strokeWidth: u,
-                        strokeColor: c,
+                        from: [a, a - s],
+                        to: [a, a - s - o],
+                        strokeWidth: h,
+                        strokeColor: u,
                       }),
                       new n.default.Path.Line({
-                        from: [o, o + a],
-                        to: [o, o + a + h],
-                        strokeWidth: u,
-                        strokeColor: c,
+                        from: [a, a + s],
+                        to: [a, a + s + o],
+                        strokeWidth: h,
+                        strokeColor: u,
                       }),
                       new n.default.Path.Line({
-                        from: [o - a, o],
-                        to: [o - a - h, o],
-                        strokeWidth: u,
-                        strokeColor: c,
+                        from: [a - s, a],
+                        to: [a - s - o, a],
+                        strokeWidth: h,
+                        strokeColor: u,
                       }),
                       new n.default.Path.Line({
-                        from: [o + a, o],
-                        to: [o + a + h, o],
-                        strokeWidth: u,
-                        strokeColor: c,
+                        from: [a + s, a],
+                        to: [a + s + o, a],
+                        strokeWidth: h,
+                        strokeColor: u,
                       }),
                     ]);
                   }),
@@ -30176,8 +29781,8 @@ parcelRequire = (function (e, r, t, n) {
                       a = new n.default.Shape.Circle({
                         center: [e, e],
                         radius: e,
-                        strokeColor: c,
-                        strokeWidth: l,
+                        strokeColor: u,
+                        strokeWidth: c,
                       }),
                       o = new n.default.Group([s].concat(r(i), [a]));
                     return (o.clipped = !0), o;
@@ -30188,50 +29793,37 @@ parcelRequire = (function (e, r, t, n) {
                 function r(t) {
                   return (
                     (function (t) {
-                      if (Array.isArray(t)) return s(t);
+                      if (Array.isArray(t)) {
+                        for (
+                          var e = 0, i = new Array(t.length);
+                          e < t.length;
+                          e++
+                        )
+                          i[e] = t[e];
+                        return i;
+                      }
                     })(t) ||
                     (function (t) {
                       if (
-                        'undefined' != typeof Symbol &&
-                        Symbol.iterator in Object(t)
+                        Symbol.iterator in Object(t) ||
+                        '[object Arguments]' ===
+                          Object.prototype.toString.call(t)
                       )
                         return Array.from(t);
                     })(t) ||
-                    (function (t, e) {
-                      if (t) {
-                        if ('string' == typeof t) return s(t, e);
-                        var i = Object.prototype.toString.call(t).slice(8, -1);
-                        return (
-                          'Object' === i &&
-                            t.constructor &&
-                            (i = t.constructor.name),
-                          'Map' === i || 'Set' === i
-                            ? Array.from(t)
-                            : 'Arguments' === i ||
-                              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i)
-                            ? s(t, e)
-                            : void 0
-                        );
-                      }
-                    })(t) ||
                     (function () {
                       throw new TypeError(
-                        'Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.',
+                        'Invalid attempt to spread non-iterable instance',
                       );
                     })()
                   );
                 }
-                function s(t, e) {
-                  (null == e || e > t.length) && (e = t.length);
-                  for (var i = 0, n = new Array(e); i < e; i++) n[i] = t[i];
-                  return n;
-                }
-                var a = 14,
-                  o = 18,
-                  h = 14,
-                  u = 3,
-                  c = new n.default.Color('#777777'),
-                  l = 5;
+                var s = 14,
+                  a = 18,
+                  o = 14,
+                  h = 3,
+                  u = new n.default.Color('#777777'),
+                  c = 5;
               },
               { paper: 'GYcQ' },
             ],
@@ -30740,6 +30332,401 @@ parcelRequire = (function (e, r, t, n) {
           {},
           ['QCba'],
         );
+      },
+      {},
+    ],
+    QVnC: [
+      function (require, module, exports) {
+        var t = (function (t) {
+          'use strict';
+          var r,
+            e = Object.prototype,
+            n = e.hasOwnProperty,
+            o = 'function' == typeof Symbol ? Symbol : {},
+            i = o.iterator || '@@iterator',
+            a = o.asyncIterator || '@@asyncIterator',
+            c = o.toStringTag || '@@toStringTag';
+          function u(t, r, e, n) {
+            var o = r && r.prototype instanceof v ? r : v,
+              i = Object.create(o.prototype),
+              a = new k(n || []);
+            return (
+              (i._invoke = (function (t, r, e) {
+                var n = f;
+                return function (o, i) {
+                  if (n === l) throw new Error('Generator is already running');
+                  if (n === p) {
+                    if ('throw' === o) throw i;
+                    return N();
+                  }
+                  for (e.method = o, e.arg = i; ; ) {
+                    var a = e.delegate;
+                    if (a) {
+                      var c = _(a, e);
+                      if (c) {
+                        if (c === y) continue;
+                        return c;
+                      }
+                    }
+                    if ('next' === e.method) e.sent = e._sent = e.arg;
+                    else if ('throw' === e.method) {
+                      if (n === f) throw ((n = p), e.arg);
+                      e.dispatchException(e.arg);
+                    } else 'return' === e.method && e.abrupt('return', e.arg);
+                    n = l;
+                    var u = h(t, r, e);
+                    if ('normal' === u.type) {
+                      if (((n = e.done ? p : s), u.arg === y)) continue;
+                      return { value: u.arg, done: e.done };
+                    }
+                    'throw' === u.type &&
+                      ((n = p), (e.method = 'throw'), (e.arg = u.arg));
+                  }
+                };
+              })(t, e, a)),
+              i
+            );
+          }
+          function h(t, r, e) {
+            try {
+              return { type: 'normal', arg: t.call(r, e) };
+            } catch (n) {
+              return { type: 'throw', arg: n };
+            }
+          }
+          t.wrap = u;
+          var f = 'suspendedStart',
+            s = 'suspendedYield',
+            l = 'executing',
+            p = 'completed',
+            y = {};
+          function v() {}
+          function d() {}
+          function g() {}
+          var m = {};
+          m[i] = function () {
+            return this;
+          };
+          var w = Object.getPrototypeOf,
+            L = w && w(w(G([])));
+          L && L !== e && n.call(L, i) && (m = L);
+          var x = (g.prototype = v.prototype = Object.create(m));
+          function E(t) {
+            ['next', 'throw', 'return'].forEach(function (r) {
+              t[r] = function (t) {
+                return this._invoke(r, t);
+              };
+            });
+          }
+          function b(t, r) {
+            var e;
+            this._invoke = function (o, i) {
+              function a() {
+                return new r(function (e, a) {
+                  !(function e(o, i, a, c) {
+                    var u = h(t[o], t, i);
+                    if ('throw' !== u.type) {
+                      var f = u.arg,
+                        s = f.value;
+                      return s && 'object' == typeof s && n.call(s, '__await')
+                        ? r.resolve(s.__await).then(
+                            function (t) {
+                              e('next', t, a, c);
+                            },
+                            function (t) {
+                              e('throw', t, a, c);
+                            },
+                          )
+                        : r.resolve(s).then(
+                            function (t) {
+                              (f.value = t), a(f);
+                            },
+                            function (t) {
+                              return e('throw', t, a, c);
+                            },
+                          );
+                    }
+                    c(u.arg);
+                  })(o, i, e, a);
+                });
+              }
+              return (e = e ? e.then(a, a) : a());
+            };
+          }
+          function _(t, e) {
+            var n = t.iterator[e.method];
+            if (n === r) {
+              if (((e.delegate = null), 'throw' === e.method)) {
+                if (
+                  t.iterator.return &&
+                  ((e.method = 'return'),
+                  (e.arg = r),
+                  _(t, e),
+                  'throw' === e.method)
+                )
+                  return y;
+                (e.method = 'throw'),
+                  (e.arg = new TypeError(
+                    "The iterator does not provide a 'throw' method",
+                  ));
+              }
+              return y;
+            }
+            var o = h(n, t.iterator, e.arg);
+            if ('throw' === o.type)
+              return (
+                (e.method = 'throw'), (e.arg = o.arg), (e.delegate = null), y
+              );
+            var i = o.arg;
+            return i
+              ? i.done
+                ? ((e[t.resultName] = i.value),
+                  (e.next = t.nextLoc),
+                  'return' !== e.method && ((e.method = 'next'), (e.arg = r)),
+                  (e.delegate = null),
+                  y)
+                : i
+              : ((e.method = 'throw'),
+                (e.arg = new TypeError('iterator result is not an object')),
+                (e.delegate = null),
+                y);
+          }
+          function j(t) {
+            var r = { tryLoc: t[0] };
+            1 in t && (r.catchLoc = t[1]),
+              2 in t && ((r.finallyLoc = t[2]), (r.afterLoc = t[3])),
+              this.tryEntries.push(r);
+          }
+          function O(t) {
+            var r = t.completion || {};
+            (r.type = 'normal'), delete r.arg, (t.completion = r);
+          }
+          function k(t) {
+            (this.tryEntries = [{ tryLoc: 'root' }]),
+              t.forEach(j, this),
+              this.reset(!0);
+          }
+          function G(t) {
+            if (t) {
+              var e = t[i];
+              if (e) return e.call(t);
+              if ('function' == typeof t.next) return t;
+              if (!isNaN(t.length)) {
+                var o = -1,
+                  a = function e() {
+                    for (; ++o < t.length; )
+                      if (n.call(t, o))
+                        return (e.value = t[o]), (e.done = !1), e;
+                    return (e.value = r), (e.done = !0), e;
+                  };
+                return (a.next = a);
+              }
+            }
+            return { next: N };
+          }
+          function N() {
+            return { value: r, done: !0 };
+          }
+          return (
+            (d.prototype = x.constructor = g),
+            (g.constructor = d),
+            (g[c] = d.displayName = 'GeneratorFunction'),
+            (t.isGeneratorFunction = function (t) {
+              var r = 'function' == typeof t && t.constructor;
+              return (
+                !!r &&
+                (r === d || 'GeneratorFunction' === (r.displayName || r.name))
+              );
+            }),
+            (t.mark = function (t) {
+              return (
+                Object.setPrototypeOf
+                  ? Object.setPrototypeOf(t, g)
+                  : ((t.__proto__ = g), c in t || (t[c] = 'GeneratorFunction')),
+                (t.prototype = Object.create(x)),
+                t
+              );
+            }),
+            (t.awrap = function (t) {
+              return { __await: t };
+            }),
+            E(b.prototype),
+            (b.prototype[a] = function () {
+              return this;
+            }),
+            (t.AsyncIterator = b),
+            (t.async = function (r, e, n, o, i) {
+              void 0 === i && (i = Promise);
+              var a = new b(u(r, e, n, o), i);
+              return t.isGeneratorFunction(e)
+                ? a
+                : a.next().then(function (t) {
+                    return t.done ? t.value : a.next();
+                  });
+            }),
+            E(x),
+            (x[c] = 'Generator'),
+            (x[i] = function () {
+              return this;
+            }),
+            (x.toString = function () {
+              return '[object Generator]';
+            }),
+            (t.keys = function (t) {
+              var r = [];
+              for (var e in t) r.push(e);
+              return (
+                r.reverse(),
+                function e() {
+                  for (; r.length; ) {
+                    var n = r.pop();
+                    if (n in t) return (e.value = n), (e.done = !1), e;
+                  }
+                  return (e.done = !0), e;
+                }
+              );
+            }),
+            (t.values = G),
+            (k.prototype = {
+              constructor: k,
+              reset: function (t) {
+                if (
+                  ((this.prev = 0),
+                  (this.next = 0),
+                  (this.sent = this._sent = r),
+                  (this.done = !1),
+                  (this.delegate = null),
+                  (this.method = 'next'),
+                  (this.arg = r),
+                  this.tryEntries.forEach(O),
+                  !t)
+                )
+                  for (var e in this)
+                    't' === e.charAt(0) &&
+                      n.call(this, e) &&
+                      !isNaN(+e.slice(1)) &&
+                      (this[e] = r);
+              },
+              stop: function () {
+                this.done = !0;
+                var t = this.tryEntries[0].completion;
+                if ('throw' === t.type) throw t.arg;
+                return this.rval;
+              },
+              dispatchException: function (t) {
+                if (this.done) throw t;
+                var e = this;
+                function o(n, o) {
+                  return (
+                    (c.type = 'throw'),
+                    (c.arg = t),
+                    (e.next = n),
+                    o && ((e.method = 'next'), (e.arg = r)),
+                    !!o
+                  );
+                }
+                for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+                  var a = this.tryEntries[i],
+                    c = a.completion;
+                  if ('root' === a.tryLoc) return o('end');
+                  if (a.tryLoc <= this.prev) {
+                    var u = n.call(a, 'catchLoc'),
+                      h = n.call(a, 'finallyLoc');
+                    if (u && h) {
+                      if (this.prev < a.catchLoc) return o(a.catchLoc, !0);
+                      if (this.prev < a.finallyLoc) return o(a.finallyLoc);
+                    } else if (u) {
+                      if (this.prev < a.catchLoc) return o(a.catchLoc, !0);
+                    } else {
+                      if (!h)
+                        throw new Error(
+                          'try statement without catch or finally',
+                        );
+                      if (this.prev < a.finallyLoc) return o(a.finallyLoc);
+                    }
+                  }
+                }
+              },
+              abrupt: function (t, r) {
+                for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+                  var o = this.tryEntries[e];
+                  if (
+                    o.tryLoc <= this.prev &&
+                    n.call(o, 'finallyLoc') &&
+                    this.prev < o.finallyLoc
+                  ) {
+                    var i = o;
+                    break;
+                  }
+                }
+                i &&
+                  ('break' === t || 'continue' === t) &&
+                  i.tryLoc <= r &&
+                  r <= i.finallyLoc &&
+                  (i = null);
+                var a = i ? i.completion : {};
+                return (
+                  (a.type = t),
+                  (a.arg = r),
+                  i
+                    ? ((this.method = 'next'), (this.next = i.finallyLoc), y)
+                    : this.complete(a)
+                );
+              },
+              complete: function (t, r) {
+                if ('throw' === t.type) throw t.arg;
+                return (
+                  'break' === t.type || 'continue' === t.type
+                    ? (this.next = t.arg)
+                    : 'return' === t.type
+                    ? ((this.rval = this.arg = t.arg),
+                      (this.method = 'return'),
+                      (this.next = 'end'))
+                    : 'normal' === t.type && r && (this.next = r),
+                  y
+                );
+              },
+              finish: function (t) {
+                for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+                  var e = this.tryEntries[r];
+                  if (e.finallyLoc === t)
+                    return this.complete(e.completion, e.afterLoc), O(e), y;
+                }
+              },
+              catch: function (t) {
+                for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+                  var e = this.tryEntries[r];
+                  if (e.tryLoc === t) {
+                    var n = e.completion;
+                    if ('throw' === n.type) {
+                      var o = n.arg;
+                      O(e);
+                    }
+                    return o;
+                  }
+                }
+                throw new Error('illegal catch attempt');
+              },
+              delegateYield: function (t, e, n) {
+                return (
+                  (this.delegate = {
+                    iterator: G(t),
+                    resultName: e,
+                    nextLoc: n,
+                  }),
+                  'next' === this.method && (this.arg = r),
+                  y
+                );
+              },
+            }),
+            t
+          );
+        })('object' == typeof module ? module.exports : {});
+        try {
+          regeneratorRuntime = t;
+        } catch (r) {
+          Function('r', 'regeneratorRuntime = r')(t);
+        }
       },
       {},
     ],
@@ -33144,6 +33131,137 @@ parcelRequire = (function (e, r, t, n) {
         './utils/binding_utils': 'qSPU',
       },
     ],
+    nj0G: [
+      function (require, module, exports) {
+        'use strict';
+        Object.defineProperty(exports, '__esModule', { value: !0 });
+        var t = Symbol.for('INJECTION');
+        function e(e, n, r, o) {
+          Object.defineProperty(e, n, {
+            configurable: !0,
+            enumerable: !0,
+            get: function () {
+              return (
+                o &&
+                  !Reflect.hasMetadata(t, this, n) &&
+                  Reflect.defineMetadata(t, r(), this, n),
+                Reflect.hasMetadata(t, this, n)
+                  ? Reflect.getMetadata(t, this, n)
+                  : r()
+              );
+            },
+            set: function (e) {
+              Reflect.defineMetadata(t, e, this, n);
+            },
+          });
+        }
+        function n(t, n) {
+          return function (r) {
+            return function (o, u) {
+              e(
+                o,
+                u,
+                function () {
+                  return t.get(r);
+                },
+                n,
+              );
+            };
+          };
+        }
+        function r(t, n) {
+          return function (r, o) {
+            return function (u, c) {
+              e(
+                u,
+                c,
+                function () {
+                  return t.getNamed(r, o);
+                },
+                n,
+              );
+            };
+          };
+        }
+        function o(t, n) {
+          return function (r, o, u) {
+            return function (c, a) {
+              e(
+                c,
+                a,
+                function () {
+                  return t.getTagged(r, o, u);
+                },
+                n,
+              );
+            };
+          };
+        }
+        function u(t, n) {
+          return function (r) {
+            return function (o, u) {
+              e(
+                o,
+                u,
+                function () {
+                  return t.getAll(r);
+                },
+                n,
+              );
+            };
+          };
+        }
+        (exports.makePropertyInjectDecorator = n),
+          (exports.makePropertyInjectNamedDecorator = r),
+          (exports.makePropertyInjectTaggedDecorator = o),
+          (exports.makePropertyMultiInjectDecorator = u);
+      },
+      {},
+    ],
+    zF2A: [
+      function (require, module, exports) {
+        'use strict';
+        Object.defineProperty(exports, '__esModule', { value: !0 });
+        var e = require('./decorators');
+        function r(r, t) {
+          return (
+            void 0 === t && (t = !0),
+            {
+              lazyInject: e.makePropertyInjectDecorator(r, t),
+              lazyInjectNamed: e.makePropertyInjectNamedDecorator(r, t),
+              lazyInjectTagged: e.makePropertyInjectTaggedDecorator(r, t),
+              lazyMultiInject: e.makePropertyMultiInjectDecorator(r, t),
+            }
+          );
+        }
+        exports.default = r;
+      },
+      { './decorators': 'nj0G' },
+    ],
+    KomH: [
+      function (require, module, exports) {
+        'use strict';
+        function e(e) {
+          return function () {
+            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++)
+              n[o] = arguments[o];
+            return new Promise(function (t) {
+              e.apply(void 0, n.concat([t]));
+            });
+          };
+        }
+        function t(e) {
+          var t = document.createElement('textarea');
+          (t.innerHTML = e), document.body.appendChild(t), t.select();
+          var n = document.execCommand('copy');
+          return document.body.removeChild(t), n;
+        }
+        Object.defineProperty(exports, '__esModule', { value: !0 }),
+          (exports.toPromise = e),
+          (exports.copy = t);
+      },
+      {},
+    ],
     pBGv: [
       function (require, module, exports) {
         var t,
@@ -33929,137 +34047,6 @@ parcelRequire = (function (e, r, t, n) {
         })(t || (t = {}));
       },
       { process: 'pBGv' },
-    ],
-    nj0G: [
-      function (require, module, exports) {
-        'use strict';
-        Object.defineProperty(exports, '__esModule', { value: !0 });
-        var t = Symbol.for('INJECTION');
-        function e(e, n, r, o) {
-          Object.defineProperty(e, n, {
-            configurable: !0,
-            enumerable: !0,
-            get: function () {
-              return (
-                o &&
-                  !Reflect.hasMetadata(t, this, n) &&
-                  Reflect.defineMetadata(t, r(), this, n),
-                Reflect.hasMetadata(t, this, n)
-                  ? Reflect.getMetadata(t, this, n)
-                  : r()
-              );
-            },
-            set: function (e) {
-              Reflect.defineMetadata(t, e, this, n);
-            },
-          });
-        }
-        function n(t, n) {
-          return function (r) {
-            return function (o, u) {
-              e(
-                o,
-                u,
-                function () {
-                  return t.get(r);
-                },
-                n,
-              );
-            };
-          };
-        }
-        function r(t, n) {
-          return function (r, o) {
-            return function (u, c) {
-              e(
-                u,
-                c,
-                function () {
-                  return t.getNamed(r, o);
-                },
-                n,
-              );
-            };
-          };
-        }
-        function o(t, n) {
-          return function (r, o, u) {
-            return function (c, a) {
-              e(
-                c,
-                a,
-                function () {
-                  return t.getTagged(r, o, u);
-                },
-                n,
-              );
-            };
-          };
-        }
-        function u(t, n) {
-          return function (r) {
-            return function (o, u) {
-              e(
-                o,
-                u,
-                function () {
-                  return t.getAll(r);
-                },
-                n,
-              );
-            };
-          };
-        }
-        (exports.makePropertyInjectDecorator = n),
-          (exports.makePropertyInjectNamedDecorator = r),
-          (exports.makePropertyInjectTaggedDecorator = o),
-          (exports.makePropertyMultiInjectDecorator = u);
-      },
-      {},
-    ],
-    zF2A: [
-      function (require, module, exports) {
-        'use strict';
-        Object.defineProperty(exports, '__esModule', { value: !0 });
-        var e = require('./decorators');
-        function r(r, t) {
-          return (
-            void 0 === t && (t = !0),
-            {
-              lazyInject: e.makePropertyInjectDecorator(r, t),
-              lazyInjectNamed: e.makePropertyInjectNamedDecorator(r, t),
-              lazyInjectTagged: e.makePropertyInjectTaggedDecorator(r, t),
-              lazyMultiInject: e.makePropertyMultiInjectDecorator(r, t),
-            }
-          );
-        }
-        exports.default = r;
-      },
-      { './decorators': 'nj0G' },
-    ],
-    KomH: [
-      function (require, module, exports) {
-        'use strict';
-        function e(e) {
-          return function () {
-            for (var t = arguments.length, n = new Array(t), o = 0; o < t; o++)
-              n[o] = arguments[o];
-            return new Promise(function (t) {
-              e.apply(void 0, n.concat([t]));
-            });
-          };
-        }
-        function t(e) {
-          var t = document.createElement('textarea');
-          (t.innerHTML = e), document.body.appendChild(t), t.select();
-          var n = document.execCommand('copy');
-          return document.body.removeChild(t), n;
-        }
-        Object.defineProperty(exports, '__esModule', { value: !0 }),
-          (exports.toPromise = e),
-          (exports.copy = t);
-      },
-      {},
     ],
     CDRn: [
       function (require, module, exports) {
@@ -36339,19 +36326,35 @@ parcelRequire = (function (e, r, t, n) {
             })(e, t);
         }
         function f(e) {
-          var t = l();
           return function () {
-            var n,
-              r = y(e);
-            if (t) {
-              var o = y(this).constructor;
-              n = Reflect.construct(r, arguments, o);
-            } else n = r.apply(this, arguments);
-            return a(this, n);
+            var t,
+              n = l(e);
+            if (
+              (function () {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1;
+                if (Reflect.construct.sham) return !1;
+                if ('function' == typeof Proxy) return !0;
+                try {
+                  return (
+                    Date.prototype.toString.call(
+                      Reflect.construct(Date, [], function () {}),
+                    ),
+                    !0
+                  );
+                } catch (e) {
+                  return !1;
+                }
+              })()
+            ) {
+              var r = l(this).constructor;
+              t = Reflect.construct(n, arguments, r);
+            } else t = n.apply(this, arguments);
+            return a(this, t);
           };
         }
         function a(e, t) {
-          return !t || ('object' !== p(t) && 'function' != typeof t) ? s(e) : t;
+          return !t || ('object' !== y(t) && 'function' != typeof t) ? s(e) : t;
         }
         function s(e) {
           if (void 0 === e)
@@ -36360,30 +36363,15 @@ parcelRequire = (function (e, r, t, n) {
             );
           return e;
         }
-        function l() {
-          if ('undefined' == typeof Reflect || !Reflect.construct) return !1;
-          if (Reflect.construct.sham) return !1;
-          if ('function' == typeof Proxy) return !0;
-          try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {}),
-              ),
-              !0
-            );
-          } catch (e) {
-            return !1;
-          }
-        }
-        function y(e) {
-          return (y = Object.setPrototypeOf
+        function l(e) {
+          return (l = Object.setPrototypeOf
             ? Object.getPrototypeOf
             : function (e) {
                 return e.__proto__ || Object.getPrototypeOf(e);
               })(e);
         }
-        function p(e) {
-          return (p =
+        function y(e) {
+          return (y =
             'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
               ? function (e) {
                   return typeof e;
@@ -36397,9 +36385,9 @@ parcelRequire = (function (e, r, t, n) {
                     : typeof e;
                 })(e);
         }
-        var d,
-          h,
-          v =
+        var p,
+          d,
+          h =
             (this && this.__decorate) ||
             function (e, t, n, r) {
               var o,
@@ -36412,7 +36400,7 @@ parcelRequire = (function (e, r, t, n) {
                     : r;
               if (
                 'object' ===
-                  ('undefined' == typeof Reflect ? 'undefined' : p(Reflect)) &&
+                  ('undefined' == typeof Reflect ? 'undefined' : y(Reflect)) &&
                 'function' == typeof Reflect.decorate
               )
                 c = Reflect.decorate(e, t, n, r);
@@ -36422,17 +36410,17 @@ parcelRequire = (function (e, r, t, n) {
                     (c = (i < 3 ? o(c) : i > 3 ? o(t, n, c) : o(t, n)) || c);
               return i > 3 && c && Object.defineProperty(t, n, c), c;
             },
-          b =
+          v =
             (this && this.__metadata) ||
             function (e, t) {
               if (
                 'object' ===
-                  ('undefined' == typeof Reflect ? 'undefined' : p(Reflect)) &&
+                  ('undefined' == typeof Reflect ? 'undefined' : y(Reflect)) &&
                 'function' == typeof Reflect.metadata
               )
                 return Reflect.metadata(e, t);
             },
-          m =
+          b =
             (this && this.__awaiter) ||
             function (e, t, n, r) {
               return new (n || (n = Promise))(function (o, i) {
@@ -36465,9 +36453,9 @@ parcelRequire = (function (e, r, t, n) {
               });
             };
         Object.defineProperty(exports, '__esModule', { value: !0 });
-        var O = require('lit-element'),
-          j = (function (e) {
-            c(o, O.LitElement);
+        var m = require('lit-element'),
+          O = (function (e) {
+            c(o, m.LitElement);
             var n = f(o);
             function o() {
               return r(this, o), n.apply(this, arguments);
@@ -36477,7 +36465,7 @@ parcelRequire = (function (e, r, t, n) {
                 {
                   key: 'injectCanvas',
                   value: function (e) {
-                    return m(
+                    return b(
                       this,
                       void 0,
                       void 0,
@@ -36519,7 +36507,7 @@ parcelRequire = (function (e, r, t, n) {
                 {
                   key: 'render',
                   value: function () {
-                    return O.html(t());
+                    return m.html(t());
                   },
                 },
                 {
@@ -36532,41 +36520,41 @@ parcelRequire = (function (e, r, t, n) {
               o
             );
           })();
-        (j.styles = O.css(e(), Number.MAX_SAFE_INTEGER)),
-          v(
+        (O.styles = m.css(e(), Number.MAX_SAFE_INTEGER)),
+          h(
             [
-              O.queryAsync('.canvas-container'),
-              b(
+              m.queryAsync('.canvas-container'),
+              v(
                 'design:type',
                 'function' ==
-                  typeof (d = 'undefined' != typeof Promise && Promise)
+                  typeof (p = 'undefined' != typeof Promise && Promise)
+                  ? p
+                  : Object,
+              ),
+            ],
+            O.prototype,
+            'canvasContainer',
+            void 0,
+          ),
+          h(
+            [
+              m.query('canvas'),
+              v(
+                'design:type',
+                'function' ==
+                  typeof (d =
+                    'undefined' != typeof HTMLCanvasElement &&
+                    HTMLCanvasElement)
                   ? d
                   : Object,
               ),
             ],
-            j.prototype,
-            'canvasContainer',
-            void 0,
-          ),
-          v(
-            [
-              O.query('canvas'),
-              b(
-                'design:type',
-                'function' ==
-                  typeof (h =
-                    'undefined' != typeof HTMLCanvasElement &&
-                    HTMLCanvasElement)
-                  ? h
-                  : Object,
-              ),
-            ],
-            j.prototype,
+            O.prototype,
             'canvas',
             void 0,
           ),
-          (j = v([O.customElement('ac-root')], j)),
-          (exports.App = j);
+          (O = h([m.customElement('ac-root')], O)),
+          (exports.App = O);
       },
       { 'lit-element': 'bhxD' },
     ],
@@ -36803,19 +36791,35 @@ parcelRequire = (function (e, r, t, n) {
             })(e, f);
         }
         function i(e) {
-          var f = l();
           return function () {
-            var t,
-              n = b(e);
-            if (f) {
-              var r = b(this).constructor;
-              t = Reflect.construct(n, arguments, r);
-            } else t = n.apply(this, arguments);
-            return d(this, t);
+            var f,
+              t = l(e);
+            if (
+              (function () {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1;
+                if (Reflect.construct.sham) return !1;
+                if ('function' == typeof Proxy) return !0;
+                try {
+                  return (
+                    Date.prototype.toString.call(
+                      Reflect.construct(Date, [], function () {}),
+                    ),
+                    !0
+                  );
+                } catch (e) {
+                  return !1;
+                }
+              })()
+            ) {
+              var n = l(this).constructor;
+              f = Reflect.construct(t, arguments, n);
+            } else f = t.apply(this, arguments);
+            return d(this, f);
           };
         }
         function d(e, f) {
-          return !f || ('object' !== s(f) && 'function' != typeof f) ? u(e) : f;
+          return !f || ('object' !== b(f) && 'function' != typeof f) ? u(e) : f;
         }
         function u(e) {
           if (void 0 === e)
@@ -36824,30 +36828,15 @@ parcelRequire = (function (e, r, t, n) {
             );
           return e;
         }
-        function l() {
-          if ('undefined' == typeof Reflect || !Reflect.construct) return !1;
-          if (Reflect.construct.sham) return !1;
-          if ('function' == typeof Proxy) return !0;
-          try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {}),
-              ),
-              !0
-            );
-          } catch (e) {
-            return !1;
-          }
-        }
-        function b(e) {
-          return (b = Object.setPrototypeOf
+        function l(e) {
+          return (l = Object.setPrototypeOf
             ? Object.getPrototypeOf
             : function (e) {
                 return e.__proto__ || Object.getPrototypeOf(e);
               })(e);
         }
-        function s(e) {
-          return (s =
+        function b(e) {
+          return (b =
             'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
               ? function (e) {
                   return typeof e;
@@ -36861,7 +36850,7 @@ parcelRequire = (function (e, r, t, n) {
                     : typeof e;
                 })(e);
         }
-        var p =
+        var s =
             (this && this.__decorate) ||
             function (e, f, t, n) {
               var r,
@@ -36874,7 +36863,7 @@ parcelRequire = (function (e, r, t, n) {
                     : n;
               if (
                 'object' ===
-                  ('undefined' == typeof Reflect ? 'undefined' : s(Reflect)) &&
+                  ('undefined' == typeof Reflect ? 'undefined' : b(Reflect)) &&
                 'function' == typeof Reflect.decorate
               )
                 a = Reflect.decorate(e, f, t, n);
@@ -36884,17 +36873,17 @@ parcelRequire = (function (e, r, t, n) {
                     (a = (c < 3 ? r(a) : c > 3 ? r(f, t, a) : r(f, t)) || a);
               return c > 3 && a && Object.defineProperty(f, t, a), a;
             },
-          y =
+          p =
             (this && this.__metadata) ||
             function (e, f) {
               if (
                 'object' ===
-                  ('undefined' == typeof Reflect ? 'undefined' : s(Reflect)) &&
+                  ('undefined' == typeof Reflect ? 'undefined' : b(Reflect)) &&
                 'function' == typeof Reflect.metadata
               )
                 return Reflect.metadata(e, f);
             },
-          h =
+          y =
             (this && this.__importStar) ||
             function (e) {
               if (e && e.__esModule) return e;
@@ -36905,11 +36894,11 @@ parcelRequire = (function (e, r, t, n) {
               return (f.default = e), f;
             };
         Object.defineProperty(exports, '__esModule', { value: !0 });
-        var m = require('lit-element'),
-          v = require('lit-html/directives/unsafe-html.js'),
-          _ = h(require('nearest-color')),
-          g = 2e3,
-          O = {
+        var h = require('lit-element'),
+          m = require('lit-html/directives/unsafe-html.js'),
+          v = y(require('nearest-color')),
+          _ = 2e3,
+          g = {
             black: '#000',
             white: '#fff',
             slate: {
@@ -37177,16 +37166,16 @@ parcelRequire = (function (e, r, t, n) {
               900: '#881337',
             },
           },
-          w = {};
-        for (var j in O)
-          if ('string' == typeof O[j]) w[j] = O[j];
-          else for (var x in O[j]) w[''.concat(j, '-').concat(x)] = O[j][x];
+          O = {};
+        for (var w in g)
+          if ('string' == typeof g[w]) O[w] = g[w];
+          else for (var j in g[w]) O[''.concat(w, '-').concat(j)] = g[w][j];
         exports.snackbarFactory = function (e) {
           var f = document.createElement('ac-snackbar');
           return e.shadowRoot.append(f), f;
         };
-        var R = (function (e) {
-          a(r, m.LitElement);
+        var x = (function (e) {
+          a(r, h.LitElement);
           var t = i(r);
           function r() {
             var e;
@@ -37202,7 +37191,7 @@ parcelRequire = (function (e, r, t, n) {
               {
                 key: 'notifyColorCopy',
                 value: function (e) {
-                  var f = _.from(w)(e);
+                  var f = v.from(O)(e);
                   this.openHtml(
                     "\n      <ac-color-spot color='"
                       .concat(e, "'></ac-color-spot>\n      <div>\n      ")
@@ -37219,28 +37208,28 @@ parcelRequire = (function (e, r, t, n) {
                     this.classList.add('visible'),
                     (this._timerId = window.setTimeout(function () {
                       f.classList.remove('visible');
-                    }, g));
+                    }, _));
                 },
               },
               {
                 key: 'render',
                 value: function () {
-                  return m.html(f(), v.unsafeHTML(this.html));
+                  return h.html(f(), m.unsafeHTML(this.html));
                 },
               },
             ]),
             r
           );
         })();
-        (R.styles = m.css(e(), Number.MAX_SAFE_INTEGER)),
-          p(
-            [m.internalProperty(), y('design:type', Object)],
-            R.prototype,
+        (x.styles = h.css(e(), Number.MAX_SAFE_INTEGER)),
+          s(
+            [h.internalProperty(), p('design:type', Object)],
+            x.prototype,
             'html',
             void 0,
           ),
-          (R = p([m.customElement('ac-snackbar')], R)),
-          (exports.Snackbar = R);
+          (x = s([h.customElement('ac-snackbar')], x)),
+          (exports.Snackbar = x);
       },
       {
         'lit-element': 'bhxD',
@@ -37348,51 +37337,52 @@ parcelRequire = (function (e, r, t, n) {
             })(t, e);
         }
         function f(t) {
-          var e = s();
           return function () {
-            var n,
-              r = p(t);
-            if (e) {
-              var o = p(this).constructor;
-              n = Reflect.construct(r, arguments, o);
-            } else n = r.apply(this, arguments);
-            return l(this, n);
+            var e,
+              n = a(t);
+            if (
+              (function () {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1;
+                if (Reflect.construct.sham) return !1;
+                if ('function' == typeof Proxy) return !0;
+                try {
+                  return (
+                    Date.prototype.toString.call(
+                      Reflect.construct(Date, [], function () {}),
+                    ),
+                    !0
+                  );
+                } catch (t) {
+                  return !1;
+                }
+              })()
+            ) {
+              var r = a(this).constructor;
+              e = Reflect.construct(n, arguments, r);
+            } else e = n.apply(this, arguments);
+            return l(this, e);
           };
         }
         function l(t, e) {
-          return !e || ('object' !== y(e) && 'function' != typeof e) ? a(t) : e;
+          return !e || ('object' !== p(e) && 'function' != typeof e) ? s(t) : e;
         }
-        function a(t) {
+        function s(t) {
           if (void 0 === t)
             throw new ReferenceError(
               "this hasn't been initialised - super() hasn't been called",
             );
           return t;
         }
-        function s() {
-          if ('undefined' == typeof Reflect || !Reflect.construct) return !1;
-          if (Reflect.construct.sham) return !1;
-          if ('function' == typeof Proxy) return !0;
-          try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {}),
-              ),
-              !0
-            );
-          } catch (t) {
-            return !1;
-          }
-        }
-        function p(t) {
-          return (p = Object.setPrototypeOf
+        function a(t) {
+          return (a = Object.setPrototypeOf
             ? Object.getPrototypeOf
             : function (t) {
                 return t.__proto__ || Object.getPrototypeOf(t);
               })(t);
         }
-        function y(t) {
-          return (y =
+        function p(t) {
+          return (p =
             'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
@@ -37406,7 +37396,7 @@ parcelRequire = (function (e, r, t, n) {
                     : typeof t;
                 })(t);
         }
-        var b =
+        var y =
             (this && this.__decorate) ||
             function (t, e, n, r) {
               var o,
@@ -37419,7 +37409,7 @@ parcelRequire = (function (e, r, t, n) {
                     : r;
               if (
                 'object' ===
-                  ('undefined' == typeof Reflect ? 'undefined' : y(Reflect)) &&
+                  ('undefined' == typeof Reflect ? 'undefined' : p(Reflect)) &&
                 'function' == typeof Reflect.decorate
               )
                 i = Reflect.decorate(t, e, n, r);
@@ -37429,21 +37419,21 @@ parcelRequire = (function (e, r, t, n) {
                     (i = (c < 3 ? o(i) : c > 3 ? o(e, n, i) : o(e, n)) || i);
               return c > 3 && i && Object.defineProperty(e, n, i), i;
             },
-          d =
+          b =
             (this && this.__metadata) ||
             function (t, e) {
               if (
                 'object' ===
-                  ('undefined' == typeof Reflect ? 'undefined' : y(Reflect)) &&
+                  ('undefined' == typeof Reflect ? 'undefined' : p(Reflect)) &&
                 'function' == typeof Reflect.metadata
               )
                 return Reflect.metadata(t, e);
             };
         Object.defineProperty(exports, '__esModule', { value: !0 });
-        var h = require('lit-element'),
-          v = require('lit-html/directives/style-map'),
+        var d = require('lit-element'),
+          h = require('lit-html/directives/style-map'),
           m = (function (t) {
-            i(o, h.LitElement);
+            i(o, d.LitElement);
             var n = f(o);
             function o() {
               var t;
@@ -37458,27 +37448,27 @@ parcelRequire = (function (e, r, t, n) {
                 {
                   key: 'render',
                   value: function () {
-                    return h.html(e(), this.spotStyles);
+                    return d.html(e(), this.spotStyles);
                   },
                 },
                 {
                   key: 'spotStyles',
                   get: function () {
-                    return v.styleMap({ backgroundColor: this.color });
+                    return h.styleMap({ backgroundColor: this.color });
                   },
                 },
               ]),
               o
             );
           })();
-        (m.styles = h.css(t())),
-          b(
-            [h.property(), d('design:type', Object)],
+        (m.styles = d.css(t())),
+          y(
+            [d.property(), b('design:type', Object)],
             m.prototype,
             'color',
             void 0,
           ),
-          (m = b([h.customElement('ac-color-spot')], m));
+          (m = y([d.customElement('ac-color-spot')], m));
       },
       { 'lit-element': 'bhxD', 'lit-html/directives/style-map': 'QXwr' },
     ],
@@ -37748,37 +37738,37 @@ parcelRequire = (function (e, r, t, n) {
       function (require, module, exports) {
         'use strict';
         Object.defineProperty(exports, '__esModule', { value: !0 }),
-          require('@webcomponents/webcomponentsjs/webcomponents-bundle'),
-          require('regenerator-runtime/runtime');
-        var e = require('colorins'),
-          n = require('./core'),
-          t = require('~/common'),
-          r = require('~/elements'),
+          require('@webcomponents/webcomponentsjs/webcomponents-bundle');
+        var e = require('colorins');
+        require('regenerator-runtime/runtime');
+        var n = require('~/common'),
+          t = require('~/elements'),
+          r = require('./core'),
           o = document.createElement('ac-root');
         document.body.insertAdjacentElement('afterbegin', o);
         var a = document.createElement('canvas'),
           c = o.injectCanvas(a).then(function () {
             return (
-              t.container.bind(r.App).toConstantValue(o),
-              t.container.bind(n.AppManager).toSelf(),
-              t.container
+              n.container.bind(t.App).toConstantValue(o),
+              n.container.bind(r.AppManager).toSelf(),
+              n.container
                 .bind(e.Inspector)
                 .toConstantValue(e.inspectorFactory(a)),
-              t.container
-                .bind(r.Snackbar)
-                .toConstantValue(r.snackbarFactory(o)),
-              t.container.resolve(n.AppManager)
+              n.container
+                .bind(t.Snackbar)
+                .toConstantValue(t.snackbarFactory(o)),
+              n.container.resolve(r.AppManager)
             );
           });
         exports.afterInjected = c;
       },
       {
         '@webcomponents/webcomponentsjs/webcomponents-bundle': 'bvOe',
-        'regenerator-runtime/runtime': 'QVnC',
         colorins: 'Qw1b',
-        './core': 'QpEN',
+        'regenerator-runtime/runtime': 'QVnC',
         '~/common': 'rTqy',
         '~/elements': 'lFsN',
+        './core': 'QpEN',
       },
     ],
   },
