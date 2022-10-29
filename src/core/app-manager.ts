@@ -72,8 +72,13 @@ export class AppManager {
   };
 
   private handleColorCopy() {
+    let copyTimerId = null;
     this.inspector.onCopy = (color) => {
+      window.clearTimeout(copyTimerId);
       this.snackbar.notifyColorCopy(color);
+      copyTimerId = window.setTimeout(() => {
+        this.app.hide();
+      }, 1000);
     };
   }
 }
