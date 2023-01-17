@@ -1,7 +1,7 @@
 <h1 align="center">Tailwind Color Picker</h1>
 
 <p align="center">
-  A chrome extension to pick any pixel from any website and copy the closest tailwind color to it.
+  A chrome extension to pick a pixel from any website and copy the closest tailwind color to it.
 </p>
 <div align="center">
 
@@ -23,17 +23,12 @@ I built this to be used when quickly prototyping something and using other websi
 
 Coming soon to the chrome extension store!
 
-## Todos
-
-### v1
+## Tasks
 
 - [x] Get initial version working for regular color picker
 - [x] Get it to show up on all sites and zoom appropriately
 - [x] Add tailwind logic to choose closest color
 - [x] Working v1!
-
-### v2
-
 - [x] Migrate to manifest v3
 - [x] Add keyboard shortcut that automatically opens and closes extension
 - [ ] Publish to the chrome store [in-progress]

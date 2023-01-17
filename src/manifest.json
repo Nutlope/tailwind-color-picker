@@ -1,9 +1,9 @@
 {
-  "name": "tailwind-color-picker",
+  "name": "Tailwind Color Picker",
   "short_name": "TailwindColorPicker",
   "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Pick any color from a web page and get the closest tailwind color back",
+  "description": "Tailwind Color Picker allows you to pick a pixel from any web page and return the closest tailwind color.",
   "homepage_url": "https://github.com/nutlope/tailwind-color-picker",
   "icons": {
     "16": "assets/icon16.png",
