@@ -1,3 +1,3 @@
-# colorins
+# colorins module
 
-Image color inspecting widget
+Image color inspecting widget.

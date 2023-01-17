@@ -1,6 +1,6 @@
 {
   "name": "tailwind-color-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pick any color from a web page and get the closest tailwind color",
   "main": "index.js",
   "scripts": {
