@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://chrome.google.com/webstore/detail/tailwind-color-picker/iaknbjonlhaajcfpfcimahgpfknpihfm/related?hl=en&authuser=0">Tailwind Color Picker</a></h1>
+<h1 align="center"><a href="https://chrome.google.com/webstore/detail/tailwind-color-picker/iaknbjonlhaajcfpfcimahgpfknpihfm">Tailwind Color Picker</a></h1>
 
 <p align="center">
   A chrome extension to pick a pixel from any website and copy the closest tailwind color to it.
@@ -11,7 +11,7 @@
 
 ## How to install
 
-Install the [official Chrome Extension](https://chrome.google.com/webstore/detail/tailwind-color-picker/iaknbjonlhaajcfpfcimahgpfknpihfm/related?hl=en&authuser=0) today!
+Install the [official Chrome Extension](https://chrome.google.com/webstore/detail/tailwind-color-picker/iaknbjonlhaajcfpfcimahgpfknpihfm) today!
 
 ## Motivation
 
