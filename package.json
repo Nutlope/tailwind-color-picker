@@ -4,7 +4,7 @@
   "description": "Pick any color from a web page and get the closest tailwind color",
   "main": "index.js",
   "scripts": {
-    "start": "parcel watch src/*.ts* --no-source-maps",
+    "start": "parcel watch --hmr-hostname localhost src/*.ts* --no-source-maps",
     "build": "run-s clean build:colorins build:src",
     "build:src": "parcel build src/*.ts* --no-source-maps",
     "build:colorins": "yarn workspace colorins build",

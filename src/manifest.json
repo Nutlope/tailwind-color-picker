@@ -1,7 +1,7 @@
 {
   "name": "Tailwind Color Picker",
   "short_name": "TailwindColorPicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "description": "Tailwind Color Picker allows you to pick a pixel from any web page and return the closest tailwind color.",
   "homepage_url": "https://github.com/nutlope/tailwind-color-picker",
@@ -17,7 +17,7 @@
     "default_title": "Click the icon",
     "name": "Click to invoke the inspector"
   },
-  "permissions": ["activeTab", "scripting", "tabs"],
+  "permissions": ["activeTab", "scripting"],
   "commands": {
     "toggle-inspector": {
       "suggested_key": {

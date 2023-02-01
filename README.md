@@ -23,6 +23,12 @@ I built this to be used when quickly prototyping something and using other websi
 2. Go to `chrome://extensions`, enable developer mode at the top right, click "Load Unpacked", then select the dist folder.
 3. Run 'CMD + Shift + X' to toggle the extension, or click it from the toolbar to activate it
 
+## How to develop locally
+
+1. Run `git clone https://github.com/Nutlope/tailwind-color-picker`.
+2. Run `cd tailwind-color-picker && yarn install`
+3. Run `npm run start`
+
 ## Credit
 
 - Uses [any-color](https://github.com/hankchiutw/any-color) for the color picker

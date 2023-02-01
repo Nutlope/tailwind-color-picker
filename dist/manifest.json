@@ -17,11 +17,12 @@
     "default_title": "Click the icon",
     "name": "Click to invoke the inspector"
   },
-  "permissions": ["activeTab", "scripting", "tabs"],
+  "permissions": ["activeTab", "scripting"],
   "commands": {
     "toggle-inspector": {
       "suggested_key": {
         "windows": "Ctrl+Shift+X",
+        "linux": "Ctrl+Shift+X",
         "mac": "Command+Shift+X",
         "chromeos": "Ctrl+Shift+X"
       },
