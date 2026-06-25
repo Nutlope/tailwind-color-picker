@@ -5,18 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel watch --hmr-hostname localhost src/*.ts* --no-source-maps",
-    "build": "run-s clean build:colorins build:src",
+    "build": "pnpm run clean && pnpm run build:colorins && pnpm run build:src",
     "build:src": "parcel build src/*.ts* --no-source-maps",
-    "build:colorins": "yarn workspace colorins build",
+    "build:colorins": "pnpm --filter colorins run build",
     "clean": "rm -rf dist",
     "postbuild": "cd dist && zip -r tailwind-color-picker_${npm_package_version}.zip *",
     "watch": "run-p watch:*",
     "watch:src": "parcel watch src/*.ts* --no-source-maps",
-    "watch:colorins": "yarn workspace colorins watch",
+    "watch:colorins": "pnpm --filter colorins run watch",
     "bump": "HUSKY_SKIP_HOOKS=1 release-it --ci",
     "bump:manifest": "sed -i '' \"/\\\"version\\\":/s/\\\"[0-9.]*\\\"/\\\"$npm_package_version\\\"/\" ./src/manifest.json",
     "lint": "tsc --noEmit && eslint './src/**/*.{ts,tsx,js,jsx}'",
-    "lint:fix": "yarn lint --fix && pretty-quick --staged",
+    "lint:fix": "pnpm run lint --fix && pretty-quick --staged",
     "test": "jest"
   },
   "private": true,
@@ -71,21 +71,25 @@
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "chroma-js": "^2.1.0",
+    "colorins": "workspace:*",
     "inversify": "^5.0.1",
     "inversify-inject-decorators": "^3.1.0",
     "lit-element": "^2.3.1",
+    "lit-html": "^1.4.1",
+    "nearest-color": "0.4.4",
     "paper": "^0.12.4",
     "react": "^16.13.1",
     "react-color": "^2.18.0",
     "react-dom": "^16.13.1",
     "redux": "^4.0.5",
     "reflect-metadata": "^0.1.13",
-    "styled-components": "^5.0.1",
-    "nearest-color": "0.4.4"
+    "regenerator-runtime": "^0.14.1",
+    "styled-components": "^5.0.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "packageManager": "pnpm@11.7.0"
 }
