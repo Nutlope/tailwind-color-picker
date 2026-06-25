@@ -1,0 +1,18 @@
+packages:
+  - "packages/colorins"
+onlyBuiltDependencies:
+  - "core-js"
+  - "deasync"
+  - "fsevents"
+  - "highlight.js"
+  - "husky"
+  - "parcel-bundler"
+  - "styled-components"
+allowBuilds:
+  "core-js": true
+  "deasync": true
+  "fsevents": true
+  "highlight.js": true
+  "husky": true
+  "parcel-bundler": true
+  "styled-components": true
